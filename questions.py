@@ -41,7 +41,8 @@ display(cVe)
 
 freq = cVe["E-mail do Cliente"].value_counts()
 display(freq)
-freq[:5].plot()
+freqPlot = freq[:5].plot()
+freqPlot.write_html("FreqPlot.html")
 
 cVe = cVe.groupby(by='Nome da Loja').sum()
 display(cVe)
@@ -53,7 +54,8 @@ vLoj = cVe.sort_values('Quantidade Vendida', ascending = False)
 display(vLoj)
 cVe.to_csv('Teste.csv')
 
-vLoj[:5].plot()
+lojaplot = vLoj[:5].plot()
+lojaplot.write_html("LojaPlot.html")
 
 maiV = cVe['Quantidade Vendida'].max()
 melL = cVe['Quantidade Vendida'].idxmax()
@@ -140,11 +142,13 @@ print('Percentual foi de {:.2%}'.format(qtde_funcionarios_fecharam / qtde_funcio
 contratos_area_df = servicos_df[['ID Funcionário']].merge(funcionarios_df[['ID Funcionário', 'Area']])
 qtde_contratos_area = contratos_area_df['Area'].value_counts()
 print(qtde_contratos_area)
-qtde_contratos_area.plot()
+plotcontrato = qtde_contratos_area.plot()
+plotcontrato.write_html("ContratoArea.html")
 
 qtde_funcionarios_area = funcionarios_df['Area'].value_counts()
 print(qtde_funcionarios_area)
-qtde_funcionarios_area.plot()
+plotarea = qtde_funcionarios_area.plot()
+plotarea.write_html('QuantidadeFuncionariosArea.html')
 
 ticket_medio = clientes_df['Valor Contrato Mensal'].mean()
 print('O ticket médio mensal é de R${:,.2f}'.format(ticket_medio))
