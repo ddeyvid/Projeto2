@@ -179,68 +179,68 @@ def q36():
 
 # %%
 # Questão 37
-def q37():
-    print(f"Palavras: {len(input('Frase: ').split())}")
+def q37(f=input('Frase: ')):
+    print(f"Palavras: {len(f.split())}")
 
 # %%
 # Questão 38
-def q38():
-    print(f"Vogais: {sum(1 for c in input('Frase: ').lower() if c in 'aeiou')}")
+def q38(f=input('Frase: ')):
+    print(f"Vogais: {sum(1 for c in f.lower() if c in 'aeiou')}")
 
 # %%
 # Questão 39
-def q39():
-    print("Começa com 'A'" if input("Nome: ").strip().upper().startswith('A') else "Não começa com 'A'")
+def q39(nome=input("Nome: ")):
+    print("Começa com 'A'" if nome.strip().upper().startswith('A') else "Não começa com 'A'")
 
 # %%
 # Questão 40
-def q40():
-    print(input("Nome: ").upper())
+def q40(nome=input("Nome: ")):
+    print(nome.upper())
 
 # %%
 # Questão 41
-def q41():
-    print(f"Dobro: {float(input('Número: ')) * 2}")
+def q41(n=float(input('Número: '))):
+    print(f"Dobro: {n * 2}")
 
 # %%
 # Questão 42
-def q42():
-    print(f"Soma: {float(input('N1: ')) + float(input('N2: '))}")
+def q42(a=float(input('N1: ')), b=float(input('N2: '))):
+    print(f"Soma: {a + b}")
 
 # %%
 # Questão 43
-def q43():
-    print(f"Média: {(lambda l: sum(l)/len(l) if l else 0)([10, 20, 30, 40, 50])}")
+def q43(li=[10, 20, 30, 40, 50]):
+    print(f"Média: {(lambda l: sum(l)/len(l) if l else 0)(li)}")
 
 # %%
 # Questão 44
-def q44():
-    print(f"Olá, {input('Nome: ')}! Bem-vindo(a).")
+def q44(nome=input('Nome: ')):
+    print(f"Olá, {nome}! Bem-vindo(a).")
 
 # %%
 # Questão 45
-def q45():
-    print(f"Mais curto: {min(['Ana', 'Carlos', 'Bia', 'Alexandre'], key=len)}")
+def q45(li=['Ana', 'Carlos', 'Bia', 'Alexandre']):
+    print(f"Mais curto: {min(li, key=len)}")
 
 # %%
 # Questão 46
-def q46():
-    print("Aprovado" if (float(input("N1: "))+float(input("N2: ")))/2 >= 7 else "Reprovado")
+def q46(n1=float(input("N1: ")), n2=float(input("N2: "))):
+    print("Aprovado" if (n1+n2)/2 >= 7 else "Reprovado")
 
 # %%
 # Questão 47
-def q47():
-    print(f"É par? {int(input('Número: ')) % 2 == 0}")
+def q47(i=int(input("Número: "))):
+    print(f"É par? {i % 2 == 0}")
 
 # %%
 # Questão 48
-def q48():
-    [print(f"{k.title()}: {v}") for k,v in {'nome':'Ricardo','idade':35,'curso':'Mecatrônica'}.items()]
+def q48(dic={'nome':'Ricardo Milos','idade':35,'curso':'Mecatrônica'}):
+    [print(f"{k.title()}: {v}") for k,v in dic.items()]
 
 # %%
 # Questão 49
-def q49():
-    print([i for i in range(1, 11) if i % 2 == 0])
+def q49(li=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]):
+    print([i for i in li if i % 2 == 0])
 
 # %%
 def q50():
@@ -252,29 +252,21 @@ def q50():
 q50()
 
 # %%
-
 if __name__ == "__main__":
-    # Dicionário que mapeia o número da questão para a função correspondente
     questoes = {
         '1': q1, '2': q2, '3': q3, '4': q4, '5': q5, '6': q6, '7': q7, '8': q8, '9': q9, '10': q10,
         '11': q11, '12': q12, '13': q13, '14': q14, '15': q15, '16': q16, '17': q17, '18': q18, '19': q19, '20': q20,
         '21': q21, '22': q22, '23': q23, '24': q24, '25': q25, '26': q26, '27': q27, '28': q28, '29': q29, '30': q30,
         '31': q31, '32': q32, '33': q33, '34': q34, '35': q35, '36': q36, '37': q37, '38': q38, '39': q39, '40': q40,
-        '41': q41, '42': q42, '43': q43, '44': q44, '45': q45, '46': q46, '47': q47, '48': q48, '49': q49, '50': q50,
-    }
-
+        '41': q41, '42': q42, '43': q43, '44': q44, '45': q45, '46': q46, '47': q47, '48': q48, '49': q49, '50': q50}
     while True:
         print("\n" + "="*50)
         num_questao = input("Digite o número da questão que deseja executar (1-50) ou 'sair': ")
         print("="*50 + "\n")
-
         if num_questao.lower() in ['sair', 'exit', 'q', '0']:
             print("Programa finalizado.")
             break
-        
-        # Busca a função no dicionário
         funcao_para_executar = questoes.get(num_questao)
-        
         if funcao_para_executar:
             print(f"--- Executando Questão {num_questao} ---")
             funcao_para_executar()
