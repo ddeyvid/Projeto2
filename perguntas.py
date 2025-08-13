@@ -1,6 +1,3 @@
-# Questão 1
-print(f"Olá, {input('Qual o seu nome? ')}!")
-
 # %%
 # Questão 2
 print(f"Nome: {input('Qual o seu nome? ')}, Idade: {int(input('Qual a sua idade? '))}")
@@ -103,7 +100,7 @@ numeros = [float(input(f'N{i+1}: ')) for i in range(5)]; print(f"Média: {sum(nu
 
 # %%
 # Questão 27
-import math; print(f"Fatorial: {math.factorial(int(input('Número: ')))}")
+factorial = (lambda f: (lambda x: f(f, x)))(lambda f, x: x * f(f, x - 1) if x > 1 else 1); print(f"Fatorial: {factorial(int(input('Número: ')))}")
 
 # %%
 # Questão 28
