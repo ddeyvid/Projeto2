@@ -1,7 +1,7 @@
 -- Active: 1755000866348@@127.0.0.1@3306@olist
 CREATE TABLE IF NOT EXISTS customers(
     customerId VARCHAR(255) PRIMARY KEY,
-    customerUniqueId TEXT,
+    customerUniqueId VARCHAR(255),
     customerZipCodePrefix INT,
     customerCity TEXT,
     customerState TEXT
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS products(
 
 CREATE TABLE IF NOT EXISTS orderitems(
     orderID VARCHAR(255) PRIMARY KEY,
-    orderItemID INT,
+    orderItemID VARCHAR(255),
     productID VARCHAR(255),
     sellerID VARCHAR(255),
     shippingLimit DATETIME,
